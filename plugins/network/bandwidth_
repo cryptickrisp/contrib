@@ -208,7 +208,7 @@ sub uptime {
     my $puptime = "/proc/uptime";
     open( TIME, "<", $puptime ) || die "Unable to read $puptime: $!";
     while (<TIME>) {
-        split;
+        local @_ = split;
         $uptime = @_[0];
     }
     close(TIME);
